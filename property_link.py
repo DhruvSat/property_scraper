@@ -1,6 +1,8 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Chrome Drivers
 driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver_win32\chromedriver.exe")
@@ -22,13 +24,15 @@ user = input("Press 'y' or 'Y' To Continue: ")
 if user == "y":
 
     # Find URL's From Multiple Page
-    for i in range (95):
-        print(i)
-        if i != 0 :
-            driver.find_element(By.XPATH, NEXT_BUTTON).click()
-        time.sleep(20)
-        tableHref = driver.find_elements(By.XPATH, TBODY_HREF)
-        for links in tableHref:
-            link = links.get_attribute('href')
-            with open("property_links.txt", "a") as f:
-                f.write(link+'\n')
+    for i in range (99):
+        user = input("Press 'y' or 'Y' To Continue: ")
+        if user == "y":
+            print(i)
+            if i != 0 :
+                driver.find_element(By.XPATH, NEXT_BUTTON).click()
+            time.sleep(5)
+            tableHref = driver.find_elements(By.XPATH, TBODY_HREF)
+            for links in tableHref:
+                link = links.get_attribute('href')
+                with open("property_links.txt", "a") as f:
+                    f.write(link+'\n')
