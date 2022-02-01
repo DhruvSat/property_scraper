@@ -91,7 +91,7 @@ for url in listOfLinks:
             councilArea = ""
         try: 
             title = driver.find_element(By.XPATH, TITLE1).text
-            if "" not in title and "-" not in title:
+            if len(title) > 3:
                 title = title
             else:
                 title = driver.find_element(By.XPATH, TITLE2).text
@@ -99,7 +99,7 @@ for url in listOfLinks:
             title = ""
         try:
             planParcel = driver.find_element(By.XPATH, PLAN_PARCEL1).text
-            if "" not in planParcel and "-" not in planParcel:
+            if len(planParcel) > 3:
                 planParcel = planParcel
             else:
                 planParcel = driver.find_element(By.XPATH, PLAN_PARCEL2).text
@@ -130,7 +130,7 @@ for url in listOfLinks:
         dataObject = json.dumps(dataList)   
             
         # Saving Data into .json file
-        with open("Property1.json", "w") as outfile:
+        with open("Property2.json", "w") as outfile:
             outfile.write(dataObject)
 
     except:
@@ -139,7 +139,7 @@ for url in listOfLinks:
         continue
 
 # Writing Into Csv File
-with open("Applicant.csv", 'w', encoding="UTF8", newline='') as f:
+with open("Applicant2.csv", 'w', encoding="UTF8", newline='') as f:
     writer = csv.DictWriter(f, fieldnames= header)
     writer.writeheader()
     writer.writerows(dataList)
