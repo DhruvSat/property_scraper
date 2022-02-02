@@ -130,7 +130,7 @@ for url in listOfLinks:
         dataObject = json.dumps(dataList)   
             
         # Saving Data into .json file
-        with open("Property2.json", "w") as outfile:
+        with open("Applicant.json", "w") as outfile:
             outfile.write(dataObject)
 
     except:
@@ -139,7 +139,7 @@ for url in listOfLinks:
         continue
 
 # Writing Into Csv File
-with open("Applicant2.csv", 'w', encoding="UTF8", newline='') as f:
+with open("Applicant.csv", 'w', encoding="UTF8", newline='') as f:
     writer = csv.DictWriter(f, fieldnames= header)
     writer.writeheader()
     writer.writerows(dataList)

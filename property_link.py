@@ -24,15 +24,13 @@ user = input("Press 'y' or 'Y' To Continue: ")
 if user == "y":
 
     # Find URL's From Multiple Page
-    for i in range (99):
-        user = input("Press 'y' or 'Y' To Continue: ")
-        if user == "y":
-            print(i)
-            if i != 0 :
-                driver.find_element(By.XPATH, NEXT_BUTTON).click()
-            time.sleep(5)
-            tableHref = driver.find_elements(By.XPATH, TBODY_HREF)
-            for links in tableHref:
-                link = links.get_attribute('href')
-                with open("property_links.txt", "a") as f:
-                    f.write(link+'\n')
+    for i in range (110):
+        print(i)
+        if i != 0 :
+            driver.find_element(By.XPATH, NEXT_BUTTON).click()
+            time.sleep(40)
+        tableHref = driver.find_elements(By.XPATH, TBODY_HREF)
+        for links in tableHref:
+            link = links.get_attribute('href')
+            with open("property_links.txt", "a") as f:
+                f.write(link+'\n')
